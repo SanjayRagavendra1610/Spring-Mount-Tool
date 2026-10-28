@@ -71,9 +71,9 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
               className="text-lg font-extrabold tracking-tight text-slate-900 whitespace-nowrap shrink-0 hover:text-indigo-600 transition-colors cursor-pointer flex items-center gap-2"
             >
               <span className="w-7 h-7 rounded-lg bg-indigo-600 text-white flex items-center justify-center font-bold text-xs shadow-xs">
-                SG
+                P360
               </span>
-              <span>ScholarGrid</span>
+              <span>Portfolio 360</span>
             </button>
             <span className="text-xs text-slate-400 font-mono hidden sm:inline tabular-nums">
               · {studentCount} Records

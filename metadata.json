@@ -1,5 +1,5 @@
 {
-  "name": "ScholarGrid: School Student Portfolio & Excel Registry",
+  "name": "Portfolio 360: School Student Portfolio & Excel Registry",
   "description": "School student management system with Excel import/export and comprehensive multi-dimensional portfolios covering academics, sports, discipline, and extracurricular activities.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]

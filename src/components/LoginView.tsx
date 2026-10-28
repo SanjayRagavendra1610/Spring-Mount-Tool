@@ -41,10 +41,10 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLogin }) => {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center font-bold text-white shadow-xs">
-              SG
+              P360
             </div>
             <div>
-              <span className="font-bold text-sm tracking-tight text-white block">ScholarGrid</span>
+              <span className="font-bold text-sm tracking-tight text-white block">Portfolio 360</span>
               <span className="text-[10px] text-slate-400">Spring Mount Institutions · Learn 360</span>
             </div>
           </div>
@@ -283,7 +283,7 @@ export const LoginView: React.FC<LoginViewProps> = ({ onLogin }) => {
 
       {/* Footer */}
       <footer className="px-6 py-4 border-t border-slate-800/60 text-center text-xs text-slate-500">
-        ScholarGrid School Management System · Authorized Personnel Only · All Actions Audited
+        Portfolio 360 School Management System · Authorized Personnel Only · All Actions Audited
       </footer>
 
     </div>

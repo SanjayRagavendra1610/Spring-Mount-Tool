@@ -2,15 +2,23 @@
 
 @layer base {
   body {
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    color: #0f172a;
-    background-color: #f8fafc;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #0B1220;
+    background-color: #FAF9F6;
   }
-
-  /* Ensure tabular alignment for metrics, scores, grades, and timestamps */
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', Georgia, serif;
+    letter-spacing: -0.01em;
+  }
   .tabular-nums {
     font-variant-numeric: tabular-nums;
   }
+}
+:root {
+  --ink: #0B1220;
+  --bg: #FAF9F6;
+  --accent: #4F46E5;
+  --radius: 14px;
 }
 
 .app-shell {
@@ -20,9 +28,7 @@
   --line: #273241;
   min-height: 100vh;
   color: #e2e8f0;
-  background:
-    radial-gradient(ellipse at 50% -25%, rgb(30 64 175 / 13%), transparent 52%),
-    var(--workspace-bg);
+  background: var(--workspace-bg);
 }
 
 .login-shell {
