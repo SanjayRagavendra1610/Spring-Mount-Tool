@@ -1,5 +1,5 @@
-ScholarGrid Selenium Website Test Report
-Run timestamp: 2026-10-28T16:32:55+05:30
+Portfolio 360 Selenium Website Test Report
+Run timestamp: 2026-10-28T16:47:24+05:30
 Target: http://127.0.0.1:3002/
 Browser: Google Chrome (headless), controlled with Selenium WebDriver
 Test data: bundled demo records; no records were created, edited, or deleted

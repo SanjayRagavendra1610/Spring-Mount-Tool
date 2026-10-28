@@ -36,9 +36,11 @@ def click_text(text):
 
 
 def test_initial_registry():
+    assert "Portfolio 360" in driver.title, f"Unexpected browser title: {driver.title}"
     WebDriverWait(driver, 15).until(
         EC.visibility_of_element_located((By.XPATH, "//*[normalize-space()='Master Roster']"))
     )
+    assert "Portfolio 360" in driver.find_element(By.TAG_NAME, "body").text
     WebDriverWait(driver, 10).until(lambda browser: browser.find_elements(By.CSS_SELECTOR, "tbody tr"))
     row_count = len(visible_rows())
     body_text = driver.find_element(By.TAG_NAME, "body").text
@@ -182,7 +184,7 @@ def main():
     passed = sum(status == "PASS" for _, status, _ in results)
     failed = sum(status == "FAIL" for _, status, _ in results)
     lines = [
-        "ScholarGrid Selenium Website Test Report",
+        "Portfolio 360 Selenium Website Test Report",
         f"Run timestamp: {datetime.now().astimezone().isoformat(timespec='seconds')}",
         f"Target: {BASE_URL}",
         "Browser: Google Chrome (headless), controlled with Selenium WebDriver",
