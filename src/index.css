@@ -1,0 +1,290 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: #0f172a;
+    background-color: #f8fafc;
+  }
+
+  /* Ensure tabular alignment for metrics, scores, grades, and timestamps */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.app-shell {
+  --workspace-bg: #0b0f15;
+  --surface: #121821;
+  --surface-raised: #171f2a;
+  --line: #273241;
+  min-height: 100vh;
+  color: #e2e8f0;
+  background:
+    radial-gradient(ellipse at 50% -25%, rgb(30 64 175 / 13%), transparent 52%),
+    var(--workspace-bg);
+}
+
+.login-shell {
+  background:
+    radial-gradient(ellipse at 12% 12%, rgb(79 70 229 / 18%), transparent 35%),
+    radial-gradient(ellipse at 90% 80%, rgb(14 165 233 / 10%), transparent 35%),
+    #090d13;
+}
+
+.app-shell [class*="bg-white"] {
+  background-color: var(--surface) !important;
+}
+
+.app-shell [class*="bg-slate-50"] {
+  background-color: #0e141c !important;
+}
+
+.app-shell [class*="bg-slate-100"] {
+  background-color: #19222e !important;
+}
+
+.app-shell [class*="bg-slate-200"] {
+  background-color: #273241 !important;
+}
+
+.app-shell [class*="bg-slate-900"] {
+  background-color: #202b3a !important;
+}
+
+.app-shell [class*="border-slate-100"] {
+  border-color: #202a37 !important;
+}
+
+.app-shell [class*="border-slate-200"] {
+  border-color: var(--line) !important;
+}
+
+.app-shell [class*="border-slate-300"] {
+  border-color: #354254 !important;
+}
+
+.app-shell [class*="text-slate-900"],
+.app-shell [class*="text-slate-800"] {
+  color: #f1f5f9 !important;
+}
+
+.app-shell [class*="text-slate-700"] {
+  color: #d2dae5 !important;
+}
+
+.app-shell [class*="text-slate-600"] {
+  color: #b2bece !important;
+}
+
+.app-shell [class*="text-slate-500"] {
+  color: #94a3b8 !important;
+}
+
+.app-shell [class*="text-slate-400"] {
+  color: #7d8ba0 !important;
+}
+
+.app-shell [class*="text-indigo-700"],
+.app-shell [class*="text-indigo-800"] {
+  color: #a5b4fc !important;
+}
+
+.app-shell [class*="text-blue-700"],
+.app-shell [class*="text-blue-800"] {
+  color: #93c5fd !important;
+}
+
+.app-shell [class*="text-emerald-700"],
+.app-shell [class*="text-emerald-800"] {
+  color: #6ee7b7 !important;
+}
+
+.app-shell [class*="text-purple-700"],
+.app-shell [class*="text-purple-800"] {
+  color: #d8b4fe !important;
+}
+
+.app-shell [class*="text-amber-700"],
+.app-shell [class*="text-amber-800"] {
+  color: #fcd34d !important;
+}
+
+.app-shell [class*="text-rose-700"],
+.app-shell [class*="text-rose-800"] {
+  color: #fda4af !important;
+}
+
+.app-shell [class*="bg-indigo-50"],
+.app-shell [class*="bg-blue-50"],
+.app-shell [class*="bg-emerald-50"],
+.app-shell [class*="bg-purple-50"],
+.app-shell [class*="bg-amber-50"],
+.app-shell [class*="bg-rose-50"] {
+  background-color: #1c2735 !important;
+}
+
+.app-shell [class*="hover:bg-slate-50"]:hover {
+  background-color: #1a2431 !important;
+}
+
+.app-shell [class*="hover:bg-slate-100"]:hover {
+  background-color: #222d3b !important;
+}
+
+.app-shell [class*="hover:bg-slate-200"]:hover {
+  background-color: #2b3747 !important;
+}
+
+.app-shell input:not([type="checkbox"]):not([type="radio"]),
+.app-shell select,
+.app-shell textarea {
+  color: #e2e8f0;
+  color-scheme: dark;
+}
+
+.app-shell input::placeholder,
+.app-shell textarea::placeholder {
+  color: #7d8ba0;
+}
+
+.app-shell option {
+  color: #e2e8f0;
+  background: #121821;
+}
+
+.app-shell button {
+  transition-duration: 160ms;
+}
+
+.app-shell button[class*="bg-slate-900"] {
+  color: #fff !important;
+  background-color: #4f46e5 !important;
+}
+
+.app-shell .group[class*="bg-white"]:hover {
+  border-color: #43536b !important;
+  box-shadow: 0 16px 40px rgb(0 0 0 / 22%);
+  transform: translateY(-2px);
+}
+
+.app-shell ::selection {
+  color: #fff;
+  background: #4f46e5;
+}
+
+@media print {
+  .app-shell {
+    color: #000 !important;
+    background: #fff !important;
+  }
+
+  .app-shell .portfolio-document [class*="bg-white"] {
+    background-color: #fff !important;
+  }
+
+  .app-shell .portfolio-document [class*="bg-slate-50"] {
+    background-color: #f8fafc !important;
+  }
+
+  .app-shell .portfolio-document [class*="bg-slate-100"] {
+    background-color: #f1f5f9 !important;
+  }
+
+  .app-shell .portfolio-document [class*="bg-slate-200"] {
+    background-color: #e2e8f0 !important;
+  }
+
+  .app-shell .portfolio-document [class*="text-slate-900"],
+  .app-shell .portfolio-document [class*="text-slate-800"],
+  .app-shell .portfolio-document [class*="text-slate-700"],
+  .app-shell .portfolio-document [class*="text-slate-600"],
+  .app-shell .portfolio-document [class*="text-slate-500"],
+  .app-shell .portfolio-document [class*="text-slate-400"] {
+    color: #0f172a !important;
+  }
+
+  .app-shell .portfolio-document [class*="border-slate"] {
+    border-color: #e2e8f0 !important;
+  }
+
+  .app-shell .portfolio-document [class*="bg-indigo-50"],
+  .app-shell .portfolio-document [class*="bg-blue-50"],
+  .app-shell .portfolio-document [class*="bg-emerald-50"],
+  .app-shell .portfolio-document [class*="bg-purple-50"],
+  .app-shell .portfolio-document [class*="bg-amber-50"],
+  .app-shell .portfolio-document [class*="bg-rose-50"] {
+    background-color: revert !important;
+  }
+}
+
+/* StoryBook pages follow the supplied 16:9 presentation format. */
+.storybook-page {
+  aspect-ratio: 16 / 9;
+}
+
+/* Print the StoryBook as twelve landscape pages matching the PPT canvas. */
+@media print {
+  @page {
+    size: 13.333in 7.5in;
+    margin: 0;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+
+  .app-shell,
+  .app-shell main.storybook-print-view,
+  .storybook-print-root,
+  .storybook-container {
+    width: 13.333in !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .storybook-page {
+    width: 13.333in !important;
+    height: 7.5in !important;
+    min-height: 0 !important;
+    max-height: 7.5in !important;
+    aspect-ratio: auto !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+
+  .storybook-page:last-child {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  .portfolio-document {
+    border: none !important;
+    box-shadow: none !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    page-break-after: avoid;
+  }
+
+  /* Avoid awkward page breaks inside core sections */
+  section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Force background colors and borders in print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

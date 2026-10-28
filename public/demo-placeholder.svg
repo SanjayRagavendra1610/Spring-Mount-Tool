@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Demo illustration placeholder">
+  <rect width="640" height="360" rx="24" fill="#f1f5f9"/>
+  <rect x="32" y="32" width="576" height="296" rx="18" fill="#e0e7ff"/>
+  <path d="M120 248l102-104 71 72 65-65 164 145H120z" fill="#a5b4fc"/>
+  <circle cx="456" cy="112" r="28" fill="#c4b5fd"/>
+  <text x="320" y="300" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#475569">Demo illustration</text>
+</svg>

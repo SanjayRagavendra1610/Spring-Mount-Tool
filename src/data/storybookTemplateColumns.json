@@ -1,0 +1,686 @@
+[
+  {
+    "group": "Student Profile",
+    "header": "Admission ID",
+    "kind": "text",
+    "required": true
+  },
+  {
+    "group": "Student Profile",
+    "header": "Roll Number",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Student Full Name",
+    "kind": "text",
+    "required": true
+  },
+  {
+    "group": "Student Profile",
+    "header": "Gender",
+    "kind": "list:gender",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Date of Birth",
+    "kind": "date",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Stage",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Section",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Academic Year",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "House",
+    "kind": "list:house",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Institution Name",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Initiative Name",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Pedagogy Tag",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Portfolio Year",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Dream Career",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Dream Career Image File or URL",
+    "kind": "image",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Student Photo File or URL",
+    "kind": "image",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Family Photo File or URL",
+    "kind": "image",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Family Quote",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Guardian Name",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Guardian Contact",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Student Email",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Blood Group",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Overall Academic Percentage",
+    "kind": "number:0-100",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "GPA (4.0)",
+    "kind": "number:0-4",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Attendance Percentage",
+    "kind": "number:0-100",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Class Rank",
+    "kind": "number:whole",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Academic Remarks",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Primary Sport",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Sports Role",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Community Service Hours",
+    "kind": "number:whole",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Co-Curricular Talents",
+    "kind": "list:text",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Principal Endorsement",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Class Montage Image File or URL",
+    "kind": "image",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Educator Photo File or URL",
+    "kind": "image",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Teacher Philosophy Quote",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Student Profile",
+    "header": "Campus Sketch Image File or URL",
+    "kind": "image",
+    "required": false
+  },
+  {
+    "group": "STEAM",
+    "header": "STEAM Activity",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "STEAM",
+    "header": "STEAM Observation 1",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "STEAM",
+    "header": "STEAM Observation 2",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "STEAM",
+    "header": "STEAM Observation 3",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "STEAM",
+    "header": "STEAM Outcome",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "STEAM",
+    "header": "STEAM Thinker Profile",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "SEL",
+    "header": "Superhero Name",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "SEL",
+    "header": "Superhero Trait",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "SEL",
+    "header": "Self Awareness - Teacher Observation",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "SEL",
+    "header": "Self Awareness - Student Reflection",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "SEL",
+    "header": "Self Management - Teacher Observation",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "SEL",
+    "header": "Self Management - Student Reflection",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "SEL",
+    "header": "Social Awareness - Teacher Observation",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "SEL",
+    "header": "Social Awareness - Student Reflection",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "SEL",
+    "header": "Collaboration - Teacher Observation",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "SEL",
+    "header": "Collaboration - Student Reflection",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "SEL",
+    "header": "Problem Solving - Teacher Observation",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "SEL",
+    "header": "Problem Solving - Student Reflection",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Literacy",
+    "header": "Literacy Score (0-25)",
+    "kind": "number:0-25",
+    "required": false
+  },
+  {
+    "group": "Literacy",
+    "header": "Literacy Character",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Literacy",
+    "header": "Literacy Trait",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Literacy",
+    "header": "Literacy - Phonological Awareness (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Literacy",
+    "header": "Literacy - Auditory Engagement (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Literacy",
+    "header": "Literacy - Responsive Listening (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Literacy",
+    "header": "Literacy - Cognitive Listening Skills (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Literacy",
+    "header": "Literacy - Emerging Oral Expression (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Numeracy",
+    "header": "Numeracy Score (0-25)",
+    "kind": "number:0-25",
+    "required": false
+  },
+  {
+    "group": "Numeracy",
+    "header": "Numeracy Character",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Numeracy",
+    "header": "Numeracy Trait",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Numeracy",
+    "header": "Numeracy - Quantitative Competence (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Numeracy",
+    "header": "Numeracy - Number-Quantity Mapping (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Numeracy",
+    "header": "Numeracy - Geometric Classification (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Numeracy",
+    "header": "Numeracy - Arithmetical Pattern Analysis (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Numeracy",
+    "header": "Numeracy - Spatial-Relational Cognition (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Discovery",
+    "header": "Discovery Score (0-25)",
+    "kind": "number:0-25",
+    "required": false
+  },
+  {
+    "group": "Discovery",
+    "header": "Discovery Level",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Discovery",
+    "header": "Discovery - Investigative Curiosity Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Discovery",
+    "header": "Discovery - Analytical Inquiry Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Discovery",
+    "header": "Discovery - Observation & Interpretation Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Discovery",
+    "header": "Discovery - Experiential Exploration Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Discovery",
+    "header": "Discovery - Reflective Understanding Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Discovery",
+    "header": "Discovery - Investigative Curiosity Learner Voice",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Discovery",
+    "header": "Discovery - Analytical Inquiry Learner Voice",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Discovery",
+    "header": "Discovery - Observation & Interpretation Learner Voice",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Discovery",
+    "header": "Discovery - Experiential Exploration Learner Voice",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Discovery",
+    "header": "Discovery - Reflective Understanding Learner Voice",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Gross Motor",
+    "header": "Gross Motor Score (0-25)",
+    "kind": "number:0-25",
+    "required": false
+  },
+  {
+    "group": "Gross Motor",
+    "header": "Gross Motor Grade",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Gross Motor",
+    "header": "Motor Steps Completed (0-40)",
+    "kind": "number:0-40",
+    "required": false
+  },
+  {
+    "group": "Gross Motor",
+    "header": "Motor Activity Image File or URL",
+    "kind": "image",
+    "required": false
+  },
+  {
+    "group": "Gross Motor",
+    "header": "Motor - Balance & Coordination Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Gross Motor",
+    "header": "Motor - Locomotor Skills Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Gross Motor",
+    "header": "Motor - Spatial Awareness Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Gross Motor",
+    "header": "Motor - Strength & Endurance Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Gross Motor",
+    "header": "Motor - Object Control & Rhythm Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Creative Arts",
+    "header": "Creative Arts Score (0-25)",
+    "kind": "number:0-25",
+    "required": false
+  },
+  {
+    "group": "Creative Arts",
+    "header": "Creative Arts Level",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Creative Arts",
+    "header": "Artwork Title",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Creative Arts",
+    "header": "Student Artwork Image File or URL",
+    "kind": "image",
+    "required": false
+  },
+  {
+    "group": "Creative Arts",
+    "header": "Creative Arts - Inventiveness Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Creative Arts",
+    "header": "Creative Arts - Artistry Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Creative Arts",
+    "header": "Creative Arts - Fine Motor Skills Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Creative Arts",
+    "header": "Creative Arts - Craftsmanship Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Creative Arts",
+    "header": "Creative Arts - Cultural Literacy Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Cognitive",
+    "header": "Cognitive Score (0-25)",
+    "kind": "number:0-25",
+    "required": false
+  },
+  {
+    "group": "Cognitive",
+    "header": "Cognitive Level",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Cognitive",
+    "header": "Cognitive - Thinking & Reasoning Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Cognitive",
+    "header": "Cognitive - Attention & Memory Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Cognitive",
+    "header": "Cognitive - Logical Skills Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Cognitive",
+    "header": "Cognitive - Communication Skills Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Cognitive",
+    "header": "Cognitive - Problem-Solving & Creativity Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Eco",
+    "header": "Eco Score (0-25)",
+    "kind": "number:0-25",
+    "required": false
+  },
+  {
+    "group": "Eco",
+    "header": "Eco Level",
+    "kind": "text",
+    "required": false
+  },
+  {
+    "group": "Eco",
+    "header": "Eco - Eco & Social Care Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Eco",
+    "header": "Eco - Global Citizenship Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Eco",
+    "header": "Eco - Sustainable Thinking Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Eco",
+    "header": "Eco - Practical Life Engagement Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  },
+  {
+    "group": "Eco",
+    "header": "Eco - Civic & Environmental Literacy Score (0-5)",
+    "kind": "number:0-5",
+    "required": false
+  }
+]

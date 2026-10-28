@@ -1,0 +1,16 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# Local editor configuration and potentially identifiable student media or exports
+.vscode/
+src/assets/images/
+public/storybook-assets/class-memory-*.png
+public/storybook-assets/art-diya-art.png
+public/storybook-assets/art-diya-source.png
+public/downloads/*.pptx
