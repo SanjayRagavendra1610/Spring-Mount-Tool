@@ -1,15 +1,16 @@
 Portfolio 360 Selenium Website Test Report
-Run timestamp: 2026-10-28T16:47:24+05:30
+Run timestamp: 2026-10-29T18:49:48+05:30
 Target: http://127.0.0.1:3002/
 Browser: Google Chrome (headless), controlled with Selenium WebDriver
 Test data: bundled demo records; no records were created, edited, or deleted
-Summary: 7 passed, 0 failed, 7 total
+Summary: 8 passed, 0 failed, 8 total
 
 Results:
-PASS: Initial registry - Registry loaded with 7 visible rows; Showing 7 of 7 students
+PASS: Landing page and registry CTA - Landing page showed live roster metrics; registry CTA opened 7 rows (Showing 7 of 7 students)
 PASS: Registry search - Search narrowed results to Demo Student 07, then cleared successfully
 PASS: Registry category tabs - Academics, Sports, Discipline, and Extracurricular tabs displayed their expected columns
 PASS: Student portfolio detail - Opened the portfolio detail for Demo Student 07 and returned to the registry
 PASS: Portfolio directory - Directory loaded and opened a portfolio from 7 cards
 PASS: School analytics - Analytics summary and Academic Honor Roll rendered
 PASS: Role switching and add-form tabs - Admin/Teacher switching worked; all five add-form tabs opened and Cancel closed the form without saving
+PASS: Responsive layout and mobile navigation - Mobile menu navigated to registry; viewport widths had no page overflow ([1440, 768, 500]px); mobile search 427px

@@ -13,6 +13,7 @@ import { SpreadsheetGrid } from './components/SpreadsheetGrid';
 import { StoryBookPortfolio } from './components/StoryBookPortfolio';
 import { PortfolioGallery } from './components/PortfolioGallery';
 import { AnalyticsView } from './components/AnalyticsView';
+import { ProductOverview } from './components/ProductOverview';
 import { StudentFormModal } from './components/StudentFormModal';
 import { exportRosterToExcel } from './utils/excelEngine';
 import { collectPortfolioMediaReferences, loadPortfolioMediaUrls, MEDIA_REFERENCE_PREFIX } from './utils/mediaStore';
@@ -85,7 +86,7 @@ export default function App() {
       educatorPhotoUrl: resolveImage(student.storybook.educatorPhotoUrl),
     } : undefined,
   })), [students, mediaUrls]);
-  const [viewMode, setViewMode] = useState<ViewMode>('spreadsheet');
+  const [viewMode, setViewMode] = useState<ViewMode>('home');
   const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
   const displaySelectedStudent = selectedStudent
     ? displayStudents.find(student => student.id === selectedStudent.id) || selectedStudent
@@ -242,7 +243,8 @@ export default function App() {
   const permissions = ROLE_PERMISSIONS[currentUser.role];
 
   return (
-    <div className="app-shell min-h-screen flex flex-col font-sans text-slate-100">
+    <div className={`app-shell min-h-screen flex flex-col font-sans text-slate-100 ${viewMode === 'home' ? 'app-shell-home' : ''}`}>
+      <div className={viewMode === 'home' ? 'landing-panel' : ''}>
       
       {/* Top Bar Navigation */}
       <HeaderNav
@@ -303,7 +305,14 @@ export default function App() {
       </div>
 
       {/* Main Content Area */}
-      <main className={`flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 ${viewMode === 'portfolio-detail' ? 'storybook-print-view' : ''}`}>
+      <main className={`flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 ${viewMode === 'portfolio-detail' ? 'storybook-print-view' : ''} ${viewMode === 'home' ? 'overview-main' : ''}`}>
+
+        {viewMode === 'home' && (
+          <ProductOverview
+            students={displayStudents}
+            onNavigate={setViewMode}
+          />
+        )}
         
         {/* VIEW 1: SPREADSHEET GRID (EXCEL VIEW) */}
         {viewMode === 'spreadsheet' && (
@@ -357,6 +366,7 @@ export default function App() {
         )}
 
       </main>
+      </div>
 
       {/* Add / Edit Student Modal */}
       <StudentFormModal

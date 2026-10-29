@@ -154,6 +154,6 @@ export interface Student {
   storybook?: StoryBookData;
 }
 
-export type ViewMode = 'spreadsheet' | 'portfolios' | 'portfolio-detail' | 'analytics';
+export type ViewMode = 'home' | 'spreadsheet' | 'portfolios' | 'portfolio-detail' | 'analytics';
 export type SpreadsheetTab = 'all' | 'academics' | 'sports' | 'discipline' | 'extracurricular';
 export type PortfolioPresentationMode = 'storybook' | 'official-dossier';
