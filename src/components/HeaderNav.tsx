@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ViewMode } from '../types/student';
 import { User, UserRole, DEMO_USERS } from '../types/auth';
-import { Plus, LogOut, ChevronDown, ShieldCheck, GraduationCap, Building2, UserCheck, Sparkles } from 'lucide-react';
+import { Plus, LogOut, ChevronDown, ShieldCheck, GraduationCap, Building2, UserCheck, Sparkles, Menu, X, TableProperties, Users, ChartNoAxesCombined, Download } from 'lucide-react';
 
 interface HeaderNavProps {
   currentView: ViewMode;
@@ -25,6 +25,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
   onSwitchUser
 }) => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const profileMenuRef = useRef<HTMLDivElement>(null);
 
   // Close profile menu when clicking outside
@@ -67,7 +68,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
           {/* Zone 1: Single text element wordmark */}
           <div className="flex items-center gap-3 shrink-0">
             <button
-              onClick={() => onNavigate('spreadsheet')}
+              onClick={() => onNavigate('home')}
               className="text-lg font-extrabold tracking-tight text-slate-900 whitespace-nowrap shrink-0 hover:text-indigo-600 transition-colors cursor-pointer flex items-center gap-2"
             >
               <span className="w-7 h-7 rounded-lg bg-indigo-600 text-white flex items-center justify-center font-bold text-xs shadow-xs">
@@ -81,7 +82,13 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
           </div>
 
           {/* Zone 2: Concise single-line navigation links */}
-          <nav className="flex items-center gap-6 text-xs sm:text-sm font-medium text-slate-600 overflow-x-auto py-2">
+          <nav className="desktop-primary-nav flex items-center gap-6 text-xs sm:text-sm font-medium text-slate-600 overflow-x-auto py-2">
+            <button
+              onClick={() => onNavigate('home')}
+              className={`hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 cursor-pointer ${currentView === 'home' ? 'text-slate-900 font-bold border-b-2 border-slate-900 pb-0.5' : ''}`}
+            >
+              Overview
+            </button>
             <button
               onClick={() => onNavigate('spreadsheet')}
               className={`hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
@@ -243,9 +250,44 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
               )}
             </div>
 
+            <button
+              type="button"
+              className="mobile-menu-toggle"
+              aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen(open => !open)}
+            >
+              {isMobileMenuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+            </button>
+
           </div>
 
         </div>
+
+        {isMobileMenuOpen && (
+          <nav className="mobile-primary-nav" aria-label="Main navigation">
+            <button onClick={() => { onNavigate('home'); setIsMobileMenuOpen(false); }} aria-current={currentView === 'home' ? 'page' : undefined}>
+              <Sparkles aria-hidden="true" /> Overview
+            </button>
+            <button onClick={() => { onNavigate('spreadsheet'); setIsMobileMenuOpen(false); }} aria-current={currentView === 'spreadsheet' ? 'page' : undefined}>
+              <TableProperties aria-hidden="true" /> Student registry
+            </button>
+            <button onClick={() => { onNavigate('portfolios'); setIsMobileMenuOpen(false); }} aria-current={currentView === 'portfolios' || currentView === 'portfolio-detail' ? 'page' : undefined}>
+              <Users aria-hidden="true" /> Portfolios
+            </button>
+            <button onClick={() => { onNavigate('analytics'); setIsMobileMenuOpen(false); }} aria-current={currentView === 'analytics' ? 'page' : undefined}>
+              <ChartNoAxesCombined aria-hidden="true" /> School analytics
+            </button>
+            <button onClick={() => { onExportExcel(); setIsMobileMenuOpen(false); }}>
+              <Download aria-hidden="true" /> Export Excel
+            </button>
+            {currentUser.role !== 'management' && (
+              <button className="mobile-menu-action" onClick={() => { onOpenAddModal(); setIsMobileMenuOpen(false); }}>
+                <Plus aria-hidden="true" /> Add student
+              </button>
+            )}
+          </nav>
+        )}
       </div>
     </header>
   );

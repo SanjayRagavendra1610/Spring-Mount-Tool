@@ -35,18 +35,28 @@ def click_text(text):
     ).click()
 
 
-def test_initial_registry():
+def open_overview():
+    driver.find_element(By.XPATH, "//header//button[contains(., 'Portfolio 360')]").click()
+    WebDriverWait(driver, 5).until(EC.visibility_of_element_located((By.ID, "overview-title")))
+
+
+def test_home_and_registry_cta():
     assert "Portfolio 360" in driver.title, f"Unexpected browser title: {driver.title}"
     WebDriverWait(driver, 15).until(
-        EC.visibility_of_element_located((By.XPATH, "//*[normalize-space()='Master Roster']"))
+        EC.visibility_of_element_located((By.ID, "overview-title"))
     )
     assert "Portfolio 360" in driver.find_element(By.TAG_NAME, "body").text
+    assert driver.find_element(By.CSS_SELECTOR, ".overview-metrics").text
+    driver.find_element(By.XPATH, "//button[normalize-space()='Open student registry']").click()
+    WebDriverWait(driver, 10).until(
+        EC.visibility_of_element_located((By.XPATH, "//*[normalize-space()='Master Roster']"))
+    )
     WebDriverWait(driver, 10).until(lambda browser: browser.find_elements(By.CSS_SELECTOR, "tbody tr"))
     row_count = len(visible_rows())
     body_text = driver.find_element(By.TAG_NAME, "body").text
     count_text = next((line for line in body_text.splitlines() if "Showing " in line and " students" in line), "count unavailable")
     assert row_count > 0, "Registry table has no visible student rows"
-    return f"Registry loaded with {row_count} visible rows; {count_text}"
+    return f"Landing page showed live roster metrics; registry CTA opened {row_count} rows ({count_text})"
 
 
 def test_search():
@@ -93,7 +103,8 @@ def test_student_detail():
 
 
 def test_portfolio_directory():
-    click_text("Student Portfolios")
+    open_overview()
+    click_text("Explore portfolios")
     WebDriverWait(driver, 10).until(
         EC.visibility_of_element_located((By.XPATH, "//*[normalize-space()='Student Portfolio Directory']"))
     )
@@ -154,6 +165,32 @@ def test_role_switch_and_modal():
     return "Admin/Teacher switching worked; all five add-form tabs opened and Cancel closed the form without saving"
 
 
+def test_mobile_navigation_and_layout():
+    driver.set_window_size(390, 844)
+    open_overview()
+    menu_button = driver.find_element(By.CSS_SELECTOR, ".mobile-menu-toggle")
+    assert menu_button.is_displayed(), "Mobile navigation toggle is not visible"
+    menu_button.click()
+    mobile_nav = WebDriverWait(driver, 5).until(
+        EC.visibility_of_element_located((By.CSS_SELECTOR, ".mobile-primary-nav"))
+    )
+    assert "Student registry" in mobile_nav.text and "School analytics" in mobile_nav.text
+    mobile_nav.find_element(By.XPATH, ".//button[normalize-space()='Student registry']").click()
+    WebDriverWait(driver, 10).until(
+        EC.visibility_of_element_located((By.XPATH, "//*[normalize-space()='Master Roster']"))
+    )
+    layouts = []
+    for width, height in ((1440, 1000), (768, 1024), (390, 844)):
+        driver.set_window_size(width, height)
+        layouts.append(driver.execute_script(
+            "return {width: window.innerWidth, documentWidth: document.documentElement.scrollWidth, "
+            "searchWidth: Math.round(document.querySelector('input[placeholder^=\\\"Search by student name\\\"]')?.getBoundingClientRect().width || 0)}"
+        ))
+    assert all(layout["documentWidth"] <= layout["width"] for layout in layouts), f"Page overflow detected: {layouts}"
+    assert layouts[-1]["searchWidth"] > 200, f"Mobile search field is too narrow: {layouts[-1]}"
+    return f"Mobile menu navigated to registry; viewport widths had no page overflow ({[item['width'] for item in layouts]}px); mobile search {layouts[-1]['searchWidth']}px"
+
+
 def main():
     global driver
     options = webdriver.ChromeOptions()
@@ -167,7 +204,7 @@ def main():
         driver = webdriver.Chrome(options=options)
         driver.set_page_load_timeout(30)
         driver.get(BASE_URL)
-        record("Initial registry", test_initial_registry)
+        record("Landing page and registry CTA", test_home_and_registry_cta)
         if results[-1][1] == "PASS":
             record("Registry search", test_search)
             record("Registry category tabs", test_registry_tabs)
@@ -175,6 +212,7 @@ def main():
             record("Portfolio directory", test_portfolio_directory)
             record("School analytics", test_analytics)
             record("Role switching and add-form tabs", test_role_switch_and_modal)
+            record("Responsive layout and mobile navigation", test_mobile_navigation_and_layout)
     except WebDriverException as error:
         results.append(("Browser setup", "FAIL", f"{type(error).__name__}: {error}"))
     finally:
