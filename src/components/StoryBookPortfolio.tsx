@@ -78,6 +78,8 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
   const artworkImg = book?.artworkPhotoUrl || '';
   const classMontageImg = book?.classMontagePhotoUrl || '';
   const educatorImg = book?.educatorPhotoUrl || '';
+  // Original illustrations and school artwork embedded in the supplied deck.
+  const referenceAsset = (name: string) => `/storybook-assets/reference/${name}`;
   const heroName = textValue(book?.superHeroName, 'BAT GIRL');
   const heroTrait = textValue(book?.superHeroTrait, 'Stays calm');
   const getTier = (score: number | undefined, bands: Array<{ name: string; min: number; max: number }>) =>
@@ -258,21 +260,8 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
             
             {/* Top Logos */}
             <div className="p-8 flex items-center justify-between z-10">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full border border-purple-400/40 bg-purple-800/50 flex items-center justify-center font-bold text-amber-300">
-                  TL
-                </div>
-                <div>
-                  <h4 className="text-sm font-extrabold tracking-wider text-amber-300 uppercase">thinklink</h4>
-                  <p className="text-[10px] text-purple-200 tracking-wide">{initiative}</p>
-                </div>
-              </div>
-
-              <div className="w-14 h-14 rounded-full border border-amber-400/50 bg-amber-400/10 flex items-center justify-center p-1">
-                <div className="w-full h-full rounded-full border border-amber-300 flex items-center justify-center font-serif text-[10px] font-bold text-amber-300 text-center uppercase leading-none">
-                  SMI Crest
-                </div>
-              </div>
+              <img src={referenceAsset('image2.png')} alt="Thinklink and Spring Mount Institutions" className="w-56 max-h-16 object-contain object-left" />
+              <span className="text-xs font-bold tracking-widest text-amber-200">{initiative}</span>
             </div>
 
             {/* Center Content: Character + Title */}
@@ -280,7 +269,7 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
               {/* Doctor Child Character */}
               <div className="md:col-span-5 flex justify-center">
                 <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-amber-400/40 shadow-2xl bg-purple-950/60">
-                  {doctorImg ? <img src={doctorImg} alt={`${student.fullName} as ${careerTitle}`} className="w-full h-full object-cover object-center" referrerPolicy="no-referrer" /> : <div className="w-full h-full flex items-center justify-center text-sm text-purple-100">Add a student or dream career image</div>}
+                  {doctorImg ? <img src={doctorImg} alt={`${student.fullName} as ${careerTitle}`} className="w-full h-full object-cover object-center" referrerPolicy="no-referrer" /> : student.fullName.toLowerCase().includes('abinandha') ? <img src={referenceAsset('image1.png')} alt={`${student.fullName} from the StoryBook reference`} className="w-full h-full object-cover object-top" /> : <div className="w-full h-full flex items-center justify-center text-sm text-purple-100">Add a student or dream career image</div>}
                   <div className="absolute bottom-2 left-2 right-2 bg-slate-900/80 backdrop-blur-xs text-center py-1 px-2 rounded-lg border border-purple-400/30">
                     <span className="text-[11px] font-bold text-amber-300">Dream: {careerTitle}</span>
                   </div>
@@ -328,11 +317,8 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
               {/* Left Column: Quote & Branding */}
               <div className="md:col-span-5 space-y-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-purple-100 text-purple-800 flex items-center justify-center font-bold text-xs">
-                    TL
-                  </div>
+                  <img src={referenceAsset('image4.png')} alt="Thinklink" className="w-28 h-10 object-contain object-left" />
                   <div>
-                    <h4 className="text-xs font-bold text-purple-900 uppercase">thinklink</h4>
                     <p className="text-[10px] text-slate-500">Little Thinkers With Big Ideas</p>
                   </div>
                 </div>
@@ -377,7 +363,7 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
               {/* Right Column: Family Love Photo */}
               <div className="md:col-span-7 flex justify-center">
                 <div className="w-full max-w-md rounded-2xl overflow-hidden border-4 border-amber-400 shadow-xl bg-slate-100">
-                  {familyImg ? <img src={familyImg} alt={`${student.fullName} with Family`} className="w-full h-80 object-cover object-center" referrerPolicy="no-referrer" /> : <div className="w-full h-80 flex items-center justify-center text-sm text-slate-500">Add a family photo in the Student Data sheet</div>}
+                  {familyImg ? <img src={familyImg} alt={`${student.fullName} with Family`} className="w-full h-80 object-cover object-center" referrerPolicy="no-referrer" /> : student.fullName.toLowerCase().includes('abinandha') ? <img src={referenceAsset('image3.png')} alt={`${student.fullName} with family from the StoryBook reference`} className="w-full h-80 object-cover object-center" /> : <div className="w-full h-80 flex items-center justify-center text-sm text-slate-500">Add a family photo in the Student Data sheet</div>}
                   <div className="p-3 bg-purple-950 text-white text-center text-xs">
                     <span>{institution} · {initiative}</span>
                   </div>
@@ -484,7 +470,8 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
                   { role: 'PRECISION', name: 'V. Anand', color: 'bg-orange-50 text-orange-800 border-orange-200' },
                   { role: 'PATTERN PIONEER', name: 'Pascal', color: 'bg-rose-50 text-rose-800 border-rose-200' }
                 ].map((th, idx) => (
-                  <div key={idx} className={`p-1.5 rounded-lg border text-center ${th.color}`}>
+                    <div key={idx} className={`p-1.5 rounded-lg border text-center ${th.color}`}>
+                    {idx < 6 && <img src={referenceAsset(`image${5 + idx}.png`)} alt={`${th.name} thinker illustration`} className="mx-auto mb-1 h-8 w-8 rounded-full object-cover" />}
                     <span className="font-mono text-[10px] font-bold block">{th.id && <span>★ {th.id} · </span>}{th.role}</span>
                     <p className="text-[10px] font-bold truncate mt-0.5">{th.name}</p>
                   </div>
@@ -505,9 +492,7 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
             <div>
               <div className="flex items-center justify-between border-b pb-4 border-amber-200">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-amber-500 text-slate-900 font-extrabold flex items-center justify-center text-sm shadow-sm">
-                    SEL
-                  </div>
+                  <img src={referenceAsset('image11.png')} alt="SEL Super Heroes illustration" className="w-20 h-12 object-contain" />
                   <div>
                     <h3 className="text-3xl font-black text-slate-900 tracking-tight">
                       SEL SUPER HEROS
@@ -518,10 +503,13 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
                   </div>
                 </div>
 
-                <div className="bg-indigo-900 text-white px-4 py-2 rounded-xl text-right">
+                <div className="bg-indigo-900 text-white px-4 py-2 rounded-xl text-right flex items-center gap-3">
+                  <img src={referenceAsset('image12.png')} alt="Batgirl" className="h-16 w-14 object-contain" />
+                  <div>
                   <span className="text-[10px] uppercase font-bold text-amber-300 block">My Super Hero Trait</span>
                   <p className="text-sm font-black text-white">{heroTrait.toUpperCase()}</p>
                   <p className="text-xs font-bold text-amber-300">I AM {heroName}</p>
+                  </div>
                 </div>
               </div>
 
@@ -598,8 +586,10 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
                     Foundational Literacy ({score25(book?.literacyScore, 23)}) & Numeracy ({score25(book?.numeracyScore, 22)}) — {textValue(book?.literacyCharacter, 'SIMBA')} · {textValue(book?.numeracyCharacter, 'KUNG FU PANDA')}.
                   </p>
                 </div>
-                <div className="bg-amber-100 text-amber-900 px-3 py-1.5 rounded-lg text-xs font-bold">
-                  Scale: 1-5 Marks Each
+                <div className="flex items-center gap-3 bg-amber-100 text-amber-900 px-3 py-1.5 rounded-lg text-xs font-bold">
+                  <img src={referenceAsset('image13.png')} alt="Simba" className="h-12 w-10 object-contain" />
+                  <span>Scale: 1-5 Marks Each</span>
+                  <img src={referenceAsset('image14.png')} alt="Kung Fu Panda" className="h-12 w-10 object-contain" />
                 </div>
               </div>
 
@@ -699,7 +689,7 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
                 </div>
 
                 <div className="flex items-center gap-2 bg-amber-400 text-slate-900 px-4 py-2 rounded-xl font-bold shadow-xs">
-                  <Trophy className="w-5 h-5 text-amber-800" />
+                  <img src={referenceAsset('image15.png')} alt="Discovery score trophy" className="w-14 h-10 object-contain" />
                   <div>
                     <span className="text-[10px] uppercase block font-mono">Discovery Score</span>
                     <span className="text-lg font-black font-mono">{score25(book?.discoveryScore, 20)}</span>
@@ -724,6 +714,7 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
 
                 {/* 5 Underground Chambers */}
                 <div className="md:col-span-9 bg-amber-950 text-white p-5 rounded-2xl shadow-inner space-y-4">
+                  <img src={referenceAsset('image16.png')} alt="Underground discovery chambers" className="w-full max-h-24 object-cover rounded-lg" />
                   <div className="text-xs font-bold text-amber-400 uppercase tracking-widest flex items-center justify-between">
                     <span>Underground Exploration Ant Colony Chambers</span>
                     <span className="font-mono">{discoveryTier} Level</span>
@@ -793,6 +784,8 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
                     <span>Treasure Island: 40 🏝️</span>
                   </div>
 
+                  <img src={referenceAsset('image17.png')} alt="Pirate treasure island activity" className="h-32 w-full object-contain rounded-lg" />
+
                   {/* 40 steps visual track mini pills */}
                   <div className="flex flex-wrap gap-1 justify-center max-w-xs mx-auto py-2">
                     {Array.from({ length: 40 }).map((_, i) => (
@@ -808,7 +801,7 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
                       </span>
                     ))}
                   </div>
-                  {motorImg && <img src={motorImg} alt={`${student.fullName} gross motor activity`} className="w-full h-20 object-cover rounded-lg mt-2" loading="lazy" />}
+                  {motorImg ? <img src={motorImg} alt={`${student.fullName} gross motor activity`} className="w-full h-20 object-cover rounded-lg mt-2" loading="lazy" /> : student.fullName.toLowerCase().includes('abinandha') && <img src={referenceAsset('image18.png')} alt={`${student.fullName} gross motor activity from the StoryBook reference`} className="w-full h-20 object-cover rounded-lg mt-2" loading="lazy" />}
                   <p className="text-[11px] text-sky-800 font-semibold mt-2">
                     Steps completed: {motorSteps ?? '—'} / 40
                   </p>
@@ -873,7 +866,7 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
                   </p>
                 </div>
                 <div className="bg-rose-600 text-white px-3 py-2 rounded-xl font-bold flex items-center gap-2 shadow-xs">
-                  <div className="w-12 h-12 rounded-full bg-violet-100 flex items-center justify-center text-[9px] font-bold text-violet-700">Demo</div>
+                  <img src={referenceAsset('image19.png')} alt="Creative arts assessment wheel" className="w-12 h-12 rounded-full object-cover" />
                   <div className="text-right">
                     <span className="text-[10px] uppercase block font-mono">Creative Arts Score</span>
                     <span className="text-sm font-black uppercase">{score25(book?.creativeArtsScore, 22)} · {textValue(book?.creativeArtsLevel, 'ADEPT +++')}</span>
@@ -887,7 +880,7 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
                 {/* Masterpiece 1: Da Vinci */}
                 <div className="bg-slate-50 p-3 rounded-xl border border-slate-200 text-center">
                   <div className="h-28 rounded-lg overflow-hidden bg-amber-900/20 mb-2">
-                    <img src="/storybook-assets/art-mona-lisa.png" alt="Mona Lisa" className="w-full h-full object-cover" loading="lazy" />
+                    <img src={referenceAsset('image20.png')} alt="Mona Lisa" className="w-full h-full object-cover" loading="lazy" />
                   </div>
                   <span className="text-xs font-bold text-slate-900 block">Leonardo da Vinci</span>
                   <span className="text-[10px] text-slate-500">Mona Lisa (1503–1517)</span>
@@ -896,7 +889,7 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
                 {/* Masterpiece 2: Raja Ravi Varma */}
                 <div className="bg-slate-50 p-3 rounded-xl border border-slate-200 text-center">
                   <div className="h-28 rounded-lg overflow-hidden bg-rose-900/20 mb-2">
-                    <img src="/storybook-assets/art-hamsa-damayanti.png" alt="Hamsa Damayanti" className="w-full h-full object-cover" loading="lazy" />
+                    <img src={referenceAsset('image21.png')} alt="Hamsa Damayanti" className="w-full h-full object-cover" loading="lazy" />
                   </div>
                   <span className="text-xs font-bold text-slate-900 block">Raja Ravi Varma</span>
                   <span className="text-[10px] text-slate-500">Hamsa Damayanti (1899)</span>
@@ -905,7 +898,7 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
                 {/* Masterpiece 3: STUDENT'S REAL ARTWORK */}
                 <div className="bg-amber-100 p-3 rounded-xl border-2 border-amber-400 text-center shadow-xs">
                   <div className="h-28 rounded-lg overflow-hidden bg-white mb-2">
-                    {artworkImg ? <img src={artworkImg} alt={`${student.fullName} artwork`} className="w-full h-full object-cover" loading="lazy" /> : <div className="h-full flex items-center justify-center text-xs text-slate-500">Add artwork image</div>}
+                    {artworkImg ? <img src={artworkImg} alt={`${student.fullName} artwork`} className="w-full h-full object-cover" loading="lazy" /> : <img src={referenceAsset('image22.png')} alt={`${student.fullName} artwork from the StoryBook reference`} className="w-full h-full object-cover" loading="lazy" />}
                   </div>
                   <span className="text-xs font-black text-slate-900 block">{student.fullName.toUpperCase()}</span>
                   <span className="text-[10px] text-purple-800 font-bold">{textValue(book?.artworkTitle, 'Student Artwork')}</span>
@@ -914,7 +907,7 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
                 {/* Masterpiece 4: M.F. Hussain */}
                 <div className="bg-slate-50 p-3 rounded-xl border border-slate-200 text-center">
                   <div className="h-28 rounded-lg overflow-hidden bg-blue-900/20 mb-2">
-                    <img src="/storybook-assets/art-language-of-stone.png" alt="Language of Stone" className="w-full h-full object-cover" loading="lazy" />
+                    <img src={referenceAsset('image23.png')} alt="Language of Stone" className="w-full h-full object-cover" loading="lazy" />
                   </div>
                   <span className="text-xs font-bold text-slate-900 block">M.F. Husain</span>
                   <span className="text-[10px] text-slate-500">Language of Stone (2008–11)</span>
@@ -1042,6 +1035,7 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
                 
                 {/* Left: Mother of Trees Inspiration */}
                 <div className="md:col-span-5 bg-emerald-900/60 p-4 rounded-xl border border-emerald-800 space-y-3">
+                  <img src={referenceAsset('image27.png')} alt="Saalumarada Thimmakka, Mother of Trees" className="h-28 w-full object-contain rounded-lg" />
                   <span className="text-xs font-extrabold text-amber-300 uppercase block">Heroic Inspiration</span>
                   <h4 className="text-sm font-bold text-white">Saalumarada Thimmakka</h4>
                   <p className="text-xs text-emerald-200">
@@ -1051,7 +1045,8 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
                     <span className="font-bold text-amber-300">Community Action: </span>
                     {student.fullName} logged {book?.ecoActivityHours ?? (isImported ? '—' : student.communityServiceHours)} volunteer hours in campus greening and botanical care.
                   </div>
-                  <div className="p-2.5 bg-emerald-950 rounded-lg text-xs border border-emerald-800">
+                  <div className="p-2.5 bg-emerald-950 rounded-lg text-xs border border-emerald-800 flex items-center gap-3">
+                    <img src={referenceAsset('image28.png')} alt="QR code from the reference slide" className="h-16 w-16 object-contain bg-white p-1 rounded" />
                     <span className="font-bold text-amber-300 block">Mother of Trees & QR Audio</span>
                     Scan QR: “Little Voices, Big Message — Hear Us Out!”
                   </div>
@@ -1107,9 +1102,9 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
 
               <div className="grid grid-cols-1 md:grid-cols-12 gap-4 mt-4 items-start">
                 <div className="md:col-span-5 space-y-3">
-                  {classMontageImg ? <img src={classMontageImg} alt={`${stage} class memories`} className="w-full rounded-xl border border-slate-200" loading="lazy" /> : <div className="p-8 text-center text-xs text-slate-500 bg-white rounded-xl">Add a class montage image</div>}
+                  {classMontageImg ? <img src={classMontageImg} alt={`${stage} class memories`} className="w-full rounded-xl border border-slate-200" loading="lazy" /> : <img src={referenceAsset('image29.png')} alt={`${stage} class memories from the StoryBook reference`} className="w-full rounded-xl border border-slate-200" loading="lazy" />}
                   <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-3">
-                    {educatorImg ? <img src={educatorImg} alt="Educator" className="w-16 h-16 rounded-full object-cover" loading="lazy" /> : <div className="w-16 h-16 rounded-full bg-slate-100" />}
+                    {educatorImg ? <img src={educatorImg} alt="Educator" className="w-16 h-16 rounded-full object-cover" loading="lazy" /> : <img src={referenceAsset('image30.png')} alt="Family and student from the StoryBook reference" className="w-16 h-16 rounded-full object-cover" loading="lazy" />}
                     <div className="text-xs">
                       <strong className="block text-slate-900">Stage 3A Class Cohort</strong>
                       <span className="text-slate-500">Spring Mount Institutions · 2025–26</span>
@@ -1152,7 +1147,8 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
                   </span>
                 </div>
                 <div className="text-right">
-                  <span className="text-sm font-black text-purple-900 tracking-wider">LEARN 360</span>
+                  <img src={referenceAsset('image33.png')} alt="Learn360 by Spring Mount Institutions" className="w-36 h-12 ml-auto object-contain" />
+                  <img src={referenceAsset('image34.png')} alt="Closing StoryBook illustration" className="w-16 h-12 ml-auto object-contain" />
                   <p className="text-[9px] text-slate-500 uppercase">A Pedagogical Initiative by {institution}</p>
                 </div>
               </div>
@@ -1167,7 +1163,7 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
                     referrerPolicy="no-referrer"
                   />
                 ) : (
-                  <div className="p-8 text-center text-xs text-slate-500">Add a campus sketch in the Student Data sheet</div>
+                  <img src={referenceAsset('image32.png')} alt="Closing portfolio artwork from the StoryBook reference" className="w-full h-64 object-contain" />
                 )}
               </div>
 
@@ -1187,9 +1183,7 @@ export const StoryBookPortfolio: React.FC<StoryBookPortfolioProps> = ({
                 </div>
 
                 <div className="md:col-span-4 bg-slate-50 p-4 rounded-xl border border-slate-200 text-center">
-                  <div className="w-20 h-20 bg-slate-900 text-white mx-auto rounded-lg flex items-center justify-center shadow-xs">
-                    <QrCode className="w-12 h-12 text-amber-400" />
-                  </div>
+                  <img src={referenceAsset('image35.png')} alt="Closing page QR code from the StoryBook reference" className="w-20 h-20 mx-auto rounded-lg object-contain" />
                     <span className="text-[11px] font-bold text-slate-900 mt-2 block">
                     THIS SIDE SPEAKS: SCAN TO UNLOCK
                   </span>

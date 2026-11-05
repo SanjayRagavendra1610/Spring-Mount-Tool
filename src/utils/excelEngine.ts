@@ -1,4 +1,3 @@
-import * as XLSX from 'xlsx';
 import { Student, StoryBookData } from '../types/student';
 import { savePortfolioImage } from './mediaStore';
 import { SCHOOL_INFO } from '../data/initialStudents';
@@ -6,7 +5,8 @@ import { SCHOOL_INFO } from '../data/initialStudents';
 /**
  * Exports all students into a structured multi-tab Excel workbook (.xlsx)
  */
-export function exportRosterToExcel(students: Student[], schoolName = SCHOOL_INFO.shortName) {
+export async function exportRosterToExcel(students: Student[], schoolName = SCHOOL_INFO.shortName) {
+  const XLSX = await import('xlsx');
   const wb = XLSX.utils.book_new();
 
   // 1. MASTER SHEET
@@ -169,6 +169,7 @@ export async function importRosterFromExcel(
   imageFiles: File[] = []
 ): Promise<{ students: Student[]; count: number; error?: string }> {
   try {
+    const XLSX = await import('xlsx');
     if (!/\.(xlsx|xls|csv)$/i.test(workbookFile.name)) {
       return { students: [], count: 0, error: "Choose an Excel or CSV workbook, then select any linked image files with it." };
     }
